@@ -103,3 +103,36 @@
 [submodule "boost/io"]
 	path = boost/io
 	url = https://github.com/boostorg/io.git
+[submodule "boost/lexical_cast"]
+	path = boost/lexical_cast
+	url = https://github.com/boostorg/lexical_cast.git
+[submodule "boost/numeric_conversion"]
+	path = boost/numeric_conversion
+	url = https://github.com/boostorg/numeric_conversion.git
+[submodule "boost/uuid"]
+	path = boost/uuid
+	url = https://github.com/boostorg/uuid.git
+[submodule "boost/array"]
+	path = boost/array
+	url = https://github.com/boostorg/array.git
+[submodule "boost/container"]
+	path = boost/container
+	url = https://github.com/boostorg/container.git
+[submodule "embeddedsw"]
+	path = embeddedsw
+	url = git@github.com:kiwichris/embeddedsw.git
+[submodule "mesa-drm"]
+	path = mesa-drm
+	url = https://github.com/freedesktop/mesa-drm.git
+[submodule "boost/program_options"]
+	path = boost/program_options
+	url = https://github.com/boostorg/program_options.git
+[submodule "boost/intrusive"]
+	path = boost/intrusive
+	url = https://github.com/boostorg/intrusive.git
+[submodule "boost/predef"]
+	path = boost/predef
+	url = https://github.com/boostorg/predef.git
+[submodule "boost/spirit"]
+	path = boost/spirit
+	url = https://github.com/boostorg/spirit.git
