@@ -1,6 +1,6 @@
 [submodule "xrt"]
 	path = xrt
-	url = git@github.com:kiwichris/XRT.git
+	url = https://github.com/kiwichris/XRT.git
 [submodule "rtems_waf"]
 	path = rtems_waf
 	url = git://git.rtems.org/rtems_waf.git
@@ -87,7 +87,7 @@
 	url = https://github.com/boostorg/concept_check.git
 [submodule "boost/filesystem"]
 	path = boost/filesystem
-	url = git@github.com:kiwichris/boost-filesystem.git
+	url = https://github.com/boostorg/filesystem.git
 [submodule "boost/system"]
 	path = boost/system
 	url = https://github.com/boostorg/system.git
@@ -120,7 +120,7 @@
 	url = https://github.com/boostorg/container.git
 [submodule "embeddedsw"]
 	path = embeddedsw
-	url = git@github.com:kiwichris/embeddedsw.git
+	url = https://github.com/kiwichris/embeddedsw.git
 [submodule "mesa-drm"]
 	path = mesa-drm
 	url = https://github.com/freedesktop/mesa-drm.git
