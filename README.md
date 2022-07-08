@@ -27,25 +27,31 @@ the scope of what can be provided here.
 1. Clone the RTEMS Xilinx XRT repo to your build host
 ```
 git clone https://github.com/kiwichris/rtems-xilinx-xrt.git
+```
+2. We build in the source tree:
+```
 cd rtems-xilinx-xrt
 ```
-2. Initialise the submodules:
+3. Initialise the submodules:
 ```
 git submodule init
 ```
-3. Update the submodules:
+4. Update the submodules:
 ```
 git submodule update
 ```
-4. Configure the build for the Versal BSP:
+5. Configure the build for the Versal BSP:
 ```
 ./waf distclean configure --prefix=/opt/rtems/6 --rtems-bsp=aarch64/xilinx_versal_lp64_vck190
 ```
-5. Build:
+6. Build:
 ```
 ./waf
 ```
-
+7. Install in the configure prefix path:
+```
+./waf install
+```
 -----------
 ## Testing
 The build includes a test executable called `xbutil`. The executable will initialse the
@@ -66,6 +72,7 @@ flow in Vivado. This is sometimes called the **Classic SoC Boot Flow**. This
 name is confusing because the flow to create a suitable DFX PDI is not classic
 and is involved.
 
+-----------
 ## Status
 ### Todo
 - XCLBIN loading
