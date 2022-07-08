@@ -68,9 +68,12 @@ def build(bld):
         import collections
         bld.fatal('target name repeated: %r' %
                   ([t for t,c in collections.Counter(targets).items() if c >  1]))
+    lib_path = '${PREFIX}/' + \
+        rtems.arch_bsp_lib_path(bld.env.RTEMS_VERSION, bld.env.RTEMS_ARCH_BSP)
     bld.stlib(target='xrt',
               features='c cxx cstlib',
-              use=targets)
+              use=targets,
+              install_path=lib_path)
     bld.recurse('tests')
 
 def rebuild(ctx):

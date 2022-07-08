@@ -10,6 +10,9 @@ import rtems_waf.rtems as rtems
 
 def build(bld):
     rtems.build(bld)
+    bin_path = '${PREFIX}/' + \
+        rtems.arch_bsp_path(bld.env.RTEMS_VERSION, bld.env.RTEMS_ARCH_BSP) + \
+        '/bin'
     bsp = ['bspmain.c', 'debugger.c', 'network.c', 'init.c', 'dl.c']
     bld(features='c cxxprogram',
         target='xbutil',
@@ -18,6 +21,7 @@ def build(bld):
                   '../include',
                   '../xrt/src/runtime_src/core/include',
                   '../xrt/src/runtime_src/core/edge/include'],
-        cflags=['-O', '-g'],
+        cflags=['-O2', '-g'],
         use=['xrt'],
-        lib=['debugger', 'bsd'])
+        lib=['debugger', 'bsd'],
+        install_path=bin_path)

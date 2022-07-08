@@ -102,8 +102,8 @@ class build(object):
         targets = []
         for grp in self.data:
             group = self.data[grp]
+            gnode = bld.path.find_node(group['base'])
             if 'sources' in group and len(group['sources']) != 0:
-                gnode = bld.path.find_node(group['base'])
                 local = {}
                 if 'defines' in group:
                     local['defines'] = group['defines']
@@ -115,4 +115,13 @@ class build(object):
                     local['cxxflags'] = group['cxxflags']
                 self.objects(bld, group['base'], grp, group['sources'], config, local)
                 targets += [grp]
+            if 'install' in group and len(group['install']) != 0:
+                for install_point in group['install']:
+                    install_to = os.path.join(
+                        '${PREFIX}',
+                        rtems.arch_bsp_include_path(
+                            bld.env.RTEMS_VERSION, bld.env.RTEMS_ARCH_BSP),
+                        install_point)
+                    files = [gnode.find_node(f) for f in group['install'][install_point]]
+                    bld.install_files(install_to, files)
         return targets

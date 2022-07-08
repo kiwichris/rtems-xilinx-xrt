@@ -157,6 +157,24 @@ class build(component.build):
         config['includes'] += [os.path.join(path, 'include')]
 
     def core(self, bld, base, parent, config):
+        headers = [
+            'xrt/src/runtime_src/core/include/xrt.h',
+            'xrt/src/runtime_src/core/include/xclbin.h',
+            'xrt/src/runtime_src/core/include/xclperf.h',
+            'xrt/src/runtime_src/core/include/xcl_app_debug.h',
+            'xrt/src/runtime_src/core/include/xclerr.h',
+            'xrt/src/runtime_src/core/include/xclhal2_mem.h',
+            'xrt/src/runtime_src/core/include/xrt_mem.h',
+        ]
+        headers_deprecated = [
+            'xrt/src/runtime_src/core/include/deprecated/xrt.h',
+        ]
+        inc_path = \
+            '${PREFIX}/' + \
+            rtems.arch_bsp_include_path(
+                bld.env.RTEMS_VERSION, bld.env.RTEMS_ARCH_BSP)
+        bld.install_files(inc_path, headers)
+        bld.install_files(inc_path + '/deprecated', headers_deprecated)
         targets = []
         node, path = self.node(base, 'core', parent, 'core')
         targets += self.core_common(bld, path, node, config)

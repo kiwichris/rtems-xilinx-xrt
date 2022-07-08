@@ -25,7 +25,12 @@ data = {
             'zocl/zocl-report.c',
             'zocl/zocl-requests.c',
             'zocl/zocl-xclbin.c',
-        ]
+        ],
+        'install': {
+            'rtems/zocl': [
+                'zocl/zocl.h',
+            ]
+        }
      },
     'smc': {
         'base': 'rtems',
@@ -35,7 +40,12 @@ data = {
         'sources': [
             'smc/smccc.c',
             'smc/smccc_arm64.S',
-        ]
+        ],
+        'install': {
+            'smc': [
+                'smc/smccc.h',
+            ]
+        }
      },
     'pm': {
         'base': 'rtems',
@@ -47,7 +57,13 @@ data = {
             'pm/pm.c',
             'pm/pm-image.c',
             'pm/pm-shell.c',
-        ]
+        ],
+        'install': {
+            'rtems/pm': [
+                'pm/pm.h',
+                'pm/pm-image.h',
+            ]
+        }
      },
 }
 
