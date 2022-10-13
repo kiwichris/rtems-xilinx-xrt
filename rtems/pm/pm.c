@@ -335,7 +335,13 @@ int rtems_pm_acap_load(const void* image, size_t size, uint32_t* status) {
   int r;
   ihdrtab = rtems_pm_acap_image_header(image);
   if (ihdrtab == NULL) {
-    printf("error: ACAP image: corrupt image\n");
+    rtems_pm_image_status status;
+    status = rtems_pm_acap_verify_boot_header(image);
+    if (status == RTEMS_PM_IMAGE_SUCCESS) {
+      printf("error: ACAP image: boot PDI images cannot be loaded\n");
+    } else {
+      printf("error: ACAP image: corrupt image\n");
+    }
     errno = EIO;
     return -1;
   }
