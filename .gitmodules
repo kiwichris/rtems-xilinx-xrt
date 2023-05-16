@@ -123,7 +123,7 @@
 	url = https://github.com/kiwichris/embeddedsw.git
 [submodule "mesa-drm"]
 	path = mesa-drm
-	url = https://github.com/freedesktop/mesa-drm.git
+	url = https://gitlab.freedesktop.org/mesa/drm
 [submodule "boost/program_options"]
 	path = boost/program_options
 	url = https://github.com/boostorg/program_options.git
